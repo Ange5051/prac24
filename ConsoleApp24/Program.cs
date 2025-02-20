@@ -4,23 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp24
+namespace ConsoleApp1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Avto car1 = new Avto();
-            car1.PrintInfo();
+            Avto avto1 = new Avto();
+            avto1.Brand = "Toyota";
+            avto1.Color = "Красный";
+            avto1.Skor = 100;
+            avto1.Output();
+            Console.WriteLine();
 
-            car1.Brand = "Toyota LandCruser 400";
-            car1.Color = "Черный";
-            car1.Skor = 100;
-            car1.PrintInfo();
+            Avto avto2 = new Avto("Mersedes", "Красный", 60);
+            avto2.Output();
+            Console.WriteLine();
 
-      
-            Console.ReadKey();
+            Console.Write("Введите марку автомобиля: ");
+            string brandInput = Console.ReadLine();
+            Console.Write("Введите цвет автомобиля: ");
+            string colorInput = Console.ReadLine();
+            Console.Write("Введите скорость автомобиля (20-120 км/ч): ");
+            int skorInput = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Бренд: {brandInput}\n Цвет: {colorInput}\n Скорость: {skorInput}");
 
+            Console.Read();
         }
     }
 }

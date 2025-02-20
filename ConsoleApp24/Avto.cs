@@ -4,18 +4,90 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp24
+namespace ConsoleApp1
 {
     class Avto
     {
-        
-            private string brand;
+        /// <summary>
+        /// Марка автомобиля
+        /// </summary>
+        private string brand;
+        /// <summary>
+        /// Цвет Автомобиля
+        /// </summary>
         private string color;
-        private int skor;
-
-        public int Skor
+        /// <summary>
+        /// Скорость автомобиля
+        /// </summary>
+        private double skor;
+        /// <summary>
+        /// Конструктор без пармаметров
+        /// </summary>
+        public Avto() { }
+        /// <summary>
+        /// Конструктор с 1 параметром
+        /// </summary>
+        /// <param name="brand">Бренд</param>
+        public Avto(string brand)
         {
-            get { return skor; }
+            this.brand = brand;
+        }
+        /// <summary>
+        /// Конструктор с 2 параметрами
+        /// </summary>
+        /// <param name="brand">Бренд</param>
+        /// <param name="color">Цвет</param>
+        public Avto(string brand, string color) : this(brand)
+        {
+            this.color = color;
+        }
+        /// <summary>
+        /// Конструктор с 3 параметрами
+        /// </summary>
+        /// <param name="brand">Бренд</param>
+        /// <param name="color">Цвет</param>
+        /// <param name="skor">Скорость</param>
+        public Avto(string brand, string color, double skor) : this(brand, color)
+        {
+            this.skor = skor;
+        }
+        /// <summary>
+        /// Бренд
+        /// </summary>
+        public string Brand
+        {
+            get
+            {
+                return brand;
+            }
+            set
+            {
+                brand = value;
+            }
+        }
+        /// <summary>
+        /// Цвет
+        /// </summary>
+        public string Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+            }
+        }
+        /// <summary>
+        /// Скорость
+        /// </summary>
+        public double Skor
+        {
+            get
+            {
+                return skor;
+            }
             set
             {
                 if (value < 20)
@@ -24,22 +96,15 @@ namespace ConsoleApp24
                     skor = 120;
                 else skor = value;
             }
-
         }
-        public string Brand
+        /// <summary>
+        /// Вывод
+        /// </summary>
+        public void Output()
         {
-            get
-            { return brand; }
-            set
-            { brand = value; }
-
+            Console.WriteLine($"Бренд: {brand}\n Цвет: {color}\n Скорость: {skor}");
         }
 
-        public string Color { get; internal set; }
 
-        public void PrintInfo()
-        {
-            Console.WriteLine($"Марка: {brand}, Цвет: {color}, Скорость: {skor} км/ч");
-        }
     }
 }
